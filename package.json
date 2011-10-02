@@ -1,0 +1,17 @@
+{
+  "name" : "node-fork",
+  "version" : "0.0.1",
+  "description" : "Backported child_process.fork() function from nodejs 5.x/6.x for nodejs 4.x",
+  "author": "Sander Tolsma <sander at tolsma.net>",
+  "repository" : {
+    "type" : "git",
+    "url" : "http://github.com/stolsma/node-fork.git"
+  },
+  "main": "./lib/fork",
+  "scripts" : {
+    "preinstall" : "node-waf configure build"
+  },
+  "engines" : {
+     "node" : "0.4.x"
+  }
+}
