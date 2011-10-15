@@ -9,10 +9,10 @@
  */
 
 process.on('message', function(msg) {
-	console.log('The parent says: ', msg);
-	process.nextTick(function() {
-		process.exit(0);
-	});
+  console.log('The parent says: ', msg);
+  process.nextTick(function() {
+    process.exit(0);
+  });
 });
 
 process.send({ hello: 'I am alive!'});
