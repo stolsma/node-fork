@@ -5,7 +5,6 @@
 # Differences between fork() for nodejs 6.x and node-fork
 
   * Instead of using the stdin channel for communicating with the child process (nodejs 6.x), node-fork is using a totally separated new pipe channel.
-  * The child needs to call fork.forkChild() to connect the message channel to the parent process instead of automatically connecting as nodejs 6.x does.
   * Its is not possible to send a handle with the send() function as can be done with nodejs 6.x. (pull request implementing this is much appreciated!!) 
 
 # Installing node-fork
