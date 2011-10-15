@@ -21,21 +21,21 @@ Parent code example:
 
 ``` javascript
 var path = require('path'),
-	inspect = require('util').inspect,
-	fork = require('fork');
+    inspect = require('util').inspect,
+    fork = require('fork');
 
 var child;
 
 try {
-	child = fork.fork(path.join(__dirname, 'child.js'));
+  child = fork.fork(path.join(__dirname, 'child.js'));
 } catch (err) {
-	console.log('Error forking child: ', inspect(err));
-	process.exit(1);
+  console.log('Error forking child: ', inspect(err));
+  process.exit(1);
 }
 
 child.on('message', function(msg) {
-	if (msg.stop) process.exit(0);
-	console.log('The child says: ', msg.hello);
+  if (msg.stop) process.exit(0);
+  console.log('The child says: ', msg.hello);
 });
 
 child.send('This is your parent!');
@@ -44,21 +44,11 @@ child.send('This is your parent!');
 Child code example (child.js):
 
 ``` javascript
-var fork = require('fork'),
-	inspect = require('util').inspect;
-
-try {
-	fork.forkChild();
-} catch (err) {
-	console.log('Error initializing parent comms:', inspect(err));
-	process.exit(1);
-}
-
 process.on('message', function(msg) {
-	console.log('The parent says: ', msg);
-	process.nextTick(function() {
-		process.exit(0);
-	});
+  console.log('The parent says: ', msg);
+  process.nextTick(function() {
+    process.exit(0);
+  });
 });
 
 process.send({ hello: 'I am alive!'});
@@ -69,6 +59,11 @@ process.send({ hello: 'I am alive!'});
 To build node-fork and run the tests after checking it out:
 
     make test
+
+
+#### Author: [Sander Tolsma](https://github.com/stolsma)
+#### Contributors: [Tom Yandell](https://github.com/tomyan)
+
 
 Documentation License
 =====================
