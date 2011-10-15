@@ -27,14 +27,13 @@ var path = require('path'),
 var child;
 
 try {
-  child = fork.fork(path.join(__dirname, 'child.js'));
+  child = fork(path.join(__dirname, 'child.js'));
 } catch (err) {
   console.log('Error forking child: ', inspect(err));
   process.exit(1);
 }
 
 child.on('message', function(msg) {
-  if (msg.stop) process.exit(0);
   console.log('The child says: ', msg.hello);
 });
 
