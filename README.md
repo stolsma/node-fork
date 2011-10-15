@@ -8,6 +8,12 @@
   * The child needs to call fork.forkChild() to connect the message channel to the parent process instead of automatically connecting as nodejs 6.x does.
   * Its is not possible to send a handle with the send() function as can be done with nodejs 6.x. (pull request implementing this is much appreciated!!) 
 
+# Installing node-fork
+
+node-fork can be installed from NPM with:
+
+    npm install node-fork
+
 # Using node-fork
 
 The code almost speaks for itself: see the example directory!!
@@ -59,6 +65,11 @@ process.on('message', function(msg) {
 process.send({ hello: 'I am alive!'});
 ```
 
+# Building node-fork
+
+To build node-fork and run the tests after checking it out:
+
+    make test
 
 Documentation License
 =====================
