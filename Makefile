@@ -6,7 +6,7 @@ build:
 	node-waf configure
 
 test: build/default/createpair.node
-	node example/fork-test.js
+	node example/invisible/fork.js
 
 clean:
 	rm -rf build .lock-wscript
