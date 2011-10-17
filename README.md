@@ -15,7 +15,9 @@ node-fork can be installed from NPM with:
 
 # Using node-fork
 
-The code almost speaks for itself: see the example directory!!
+The code almost speaks for itself: see the example directories showing visisble and invisible examples!!
+
+Following is a invisible example of node-fork use.
 
 Parent code example:
 
@@ -55,7 +57,7 @@ process.send({ hello: 'I am alive!'});
 
 # Building node-fork
 
-To build node-fork and run the tests after checking it out:
+To build node-fork and run the tests after checking it out from git:
 
     make test
 
