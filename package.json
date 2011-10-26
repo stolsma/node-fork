@@ -1,6 +1,6 @@
 {
   "name" : "node-fork",
-  "version" : "0.1.1",
+  "version" : "0.1.2",
   "description" : "Look-alike nodejs 6.x child_process.fork() function module for nodejs 4.x",
   "author": "Sander Tolsma <sander at tolsma.net>",
   "repository" : {
