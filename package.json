@@ -1,15 +1,19 @@
 {
   "name" : "node-fork",
   "version" : "0.2.0",
-  "description" : "Look-alike nodejs 6.x child_process.fork() function module for nodejs 4.x",
+  "description" : "Look-alike nodejs 0.6.x child_process.fork() function module for nodejs 0.4.x and 0.6.x",
   "author": "Sander Tolsma <sander at tolsma.net>",
   "repository" : {
     "type" : "git",
     "url" : "http://github.com/stolsma/node-fork.git"
   },
   "main": "./lib/fork",
+  "devDependencies": {
+    "vows": "0.6.x >=0.6.0"
+  },
   "scripts" : {
-    "preinstall" : "node-waf configure build"
+    "preinstall" : "node-waf configure build",
+    "test": "vows test/**/*-test.js --isolate --spec"
   },
   "engines" : {
      "node" : "0.4.x || 0.6.x"
