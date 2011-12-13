@@ -1,11 +1,12 @@
 # node-fork
 
-*Look-alike nodejs 6.x child_process.fork() function module for nodejs 4.x*
+*Look-alike nodejs 0.6.x child_process.fork() function module for nodejs 0.4.x and 0.6.x*
 
-# Differences between fork() for nodejs 6.x and node-fork
+# Differences between fork() for nodejs 0.6.x and node-fork
 
-  * Instead of using the stdin channel for communicating with the child process (nodejs 6.x), node-fork is using a totally separated new pipe channel.
-  * Its is not possible to send a handle with the send() function as can be done with nodejs 6.x. (pull request implementing this is much appreciated!!) 
+  * Instead of using the stdin channel for communicating with the child process (nodejs 0.6.x), node-fork is using a totally separated new pipe channel when used in node 0.4.x.
+  * If node-fork is used with node 0.6.x then the `customFds` option can be used to create custom stdout and stderr descriptors (thats not possible with fork in node 0.6.x)  
+  * Its is not possible to send a handle with the send() function as can be done with nodejs 0.6.x. (pull request implementing this is much appreciated!!) 
 
 # Installing node-fork
 
