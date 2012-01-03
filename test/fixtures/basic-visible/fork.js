@@ -10,7 +10,7 @@
 
 var path = require('path'),
     inspect = require('util').inspect,
-    fork = require('../../../lib/fork');
+    fork = require('../../../lib/fork').fork;
 
 var child;
 
