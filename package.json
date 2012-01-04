@@ -12,7 +12,7 @@
     "vows": "0.6.x >=0.6.0"
   },
   "scripts" : {
-    "preinstall" : "node-waf configure build",
+    "preinstall" : "bash ./install",
     "test": "vows test/**/*-test.js --isolate --spec"
   },
   "engines" : {

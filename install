@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+nvm use v0.4.12
+node-waf configure build
+cp build/default/createpair.node lib/createpair.0.4.node
+
+nvm use v0.6
+node-waf configure build
+cp build/default/createpair.node lib/createpair.0.6.node
