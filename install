@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-nvm use v0.4.12
+version=`node -v`
 node-waf configure build
-cp build/default/createpair.node lib/createpair.0.4.node
-
-nvm use v0.6
-node-waf configure build
-cp build/default/createpair.node lib/createpair.0.6.node
+if [ -e build/default/createpair.node ]; then
+  cp build/default/createpair.node "lib/createpair.$version.node"
+elif [ -e build/default/createpair.node ]; then
+  cp build/default/createpair.node "lib/createpair.$version.node"
+fi
