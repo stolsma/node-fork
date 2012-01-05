@@ -24,6 +24,25 @@
 using namespace v8;
 using namespace node;
 
+#define FD_ARG(a)                                        \
+  int fd;                                                \
+  if (!(a)->IsInt32() || (fd = (a)->Int32Value()) < 0) { \
+    return ThrowException(Exception::TypeError(          \
+          String::New("Bad file descriptor argument"))); \
+  }
+
+static Handle<Value> Close(const Arguments& args) {
+  HandleScope scope;
+
+  FD_ARG(args[0])
+
+  // Windows: this is not a winsock operation, don't use _get_osfhandle here!
+  if (0 > close(fd)) {
+    return ThrowException(ErrnoException(errno, "close"));
+  }
+
+  return Undefined();
+}
 
 static inline int SetNonBlocking(int fd) {
   int flags = fcntl(fd, F_GETFL, 0);
@@ -61,4 +80,5 @@ extern "C" void init(Handle<Object> target) {
   HandleScope scope;
   
   NODE_SET_METHOD(target, "createpair", CreatePair);
+  NODE_SET_METHOD(target, "close", Close);
 }

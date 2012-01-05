@@ -8,7 +8,7 @@
  * @docauthor TTC/Sander Tolsma
  */
 
-require('../../lib/fork');
+require('../../lib/fork').fork;
 
 process.on('message', function(msg) {
   console.log('The parent says: ', msg);

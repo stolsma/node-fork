@@ -2,10 +2,14 @@
 
 *Look-alike nodejs 0.6.x child_process.fork() function module for nodejs 0.4.x and 0.6.x*
 
+# Important API change!
+
+As of `node-fork` version 0.3.0 the API has been changed to `require('fork').fork;` to get a reference to the `fork()` function
+
 # Differences between fork() for nodejs 0.6.x and node-fork
 
-  * Instead of using the stdin channel for communicating with the child process (nodejs 0.6.x), node-fork is using a totally separated new pipe channel when used in node 0.4.x.
-  * If node-fork is used with node 0.6.x then standard stdout and stderr descriptors are created on the child (thats not implemented with fork in node 0.6.x).
+  * Instead of using the stdin channel for communicating with the child process (nodejs 0.6.x), node-fork is using a totally separated new pipe channel when used in node 0.4.x and with the `command` option.
+  * If node-fork is used with node 0.6.x then standard stdout and stderr descriptors are created on the child (thats not implemented with fork in node 0.6.x yet, see [here](https://github.com/joyent/node/pull/2454)).
   * The `silent` option can be used to stop child output to stdout/stderr.   
   * Its is not possible to send a handle with the send() function as can be done with nodejs 0.6.x. (pull request implementing this is much appreciated!!) 
 
@@ -26,7 +30,7 @@ Parent code example:
 ``` javascript
 var path = require('path'),
     inspect = require('util').inspect,
-    fork = require('fork');
+    fork = require('fork').fork;
 
 var child;
 
@@ -63,9 +67,17 @@ To build node-fork and run the tests after checking it out from git:
 
     make test
 
+or to use a direct install script do:
+
+    ./install
+
+For `nvm` multi compilation do:
+
+    ./install-multiple
+
 
 #### Author: [Sander Tolsma](https://github.com/stolsma)
-#### Contributors: [Tom Yandell](https://github.com/tomyan)
+#### Contributors: [Tom Yandell](https://github.com/tomyan), [Bradley Meck](https://github.com/bmeck)
 
 
 Documentation License

@@ -9,7 +9,7 @@
  */
 
 var spawn = require('child_process').spawn,
-    fork = require('../lib/fork'),
+    fork = require('../lib/fork').fork,
     helpers = exports;
 
 helpers.createChild = function(options) {
